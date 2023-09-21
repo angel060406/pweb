@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles/StylesIndex.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
+    <title>Lars Tornøe</title>
+</head>
+<body>
+    <header>
+        <img src="./Images/Logo.png" alt="Logo">
+        <button type="button" onclick="reloj()">reloj</button>
+        <p id="demo"></p>
+        <div class="header-buttons">
+
+            <a href="#" ><button class="header-button" onclick="prueba()">Work</button></a>
+
+            <button class="header-button" id="fetchButton" onclick="api()">About</button>
+            <div id="result"></div>
+
+        </div>
+    </header>
+
+    <main>
+        <div class="card-container">
+            <div class="card">
+                <img src="./Images/1.jpg" alt="">
+                <div class="card__content">
+                  <p class="card__description">Kizu</p>
+                  
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./Images/2.jpg" alt="">
+                <div class="card__content">
+                  <p class="card__description">Hex</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./Images/3.jpg" alt="">
+                <div class="card__content">
+                  <p class="card__description">Tind</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./Images/4.jpg" alt="">
+                <div class="card__content">
+                  <p class="card__description">Coil</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./Images/5.jpg" alt="">
+                <div class="card__content">
+                  <p class="card__description">The Dots</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./Images/6.jpg" alt="">
+                <div class="card__content">
+                  <p class="card__description">Pinch</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./Images/7.jpg" alt="">
+                <div class="card__content">
+                  <p class="card__description">Strpes</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="./Images/8.jpg" alt="">
+                <div class="card__content">
+                  <p class="card__description">Scoop</p>
+                </div>
+              </div>
+
+              
+
+              
+
+              
+              
+        </div>
+        <div class="modal" >
+          <button id="openModalBtn">
+            <div id="myModal" class="modal" style="width: 50px; height: 50px; border-radius: 5px; background-color: aqua;">
+            <div class="modal-content" >
+            <p>Ventana Modal</p>
+            
+            <button id="closeModalBtn"></button>
+          </button>
+
+        </div>
+    </main>
+
+    <footer>
+        <!-- Contenido del pie de página (footer) va aquí -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
+
+    <script>
+
+    var modal = document.getElementById("myModal");
+    var openModalBtn = document.getElementById("openModalBtn");
+    var closeModalBtn = document.getElementById("closeModalBtn");
+
+    openModalBtn.addEventListener("click", function() {
+    modal.style.display = "block";
+        });
+
+    closeModalBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+        });
+
+          function prueba() {
+        Swal.fire({
+        icon: 'error',
+        title:'No disponible',
+        showConfirmButton: false,
+        timer:1500,
+        })
+    };
+
+    function api() {
+            document.getElementById("fetchButton").addEventListener 
+
+            fetch('https://jsonplaceholder.typicode.com/posts/10')
+                .then(response => response.json())
+                .then(data => {
+                    const resultDiv = document.getElementById("result");
+                    resultDiv.innerHTML = `
+                        <h2>$No disponible </h2>
+                        <h3>'------------'</h3>
+                        <p> '------------'</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Hubo un error al obtener los datos:', error);
+                });
+        };
+
+      function reloj() {
+        document.getElementById('demo').innerHTML = Date();
+      }
+    </script>
+
+</body>
+</html>
